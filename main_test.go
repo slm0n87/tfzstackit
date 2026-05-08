@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -116,7 +115,7 @@ func TestAcceptance(t *testing.T) {
 				if err != nil {
 					panic(err)
 				}
-				expected, err := ioutil.ReadFile(strings.Replace(n, ".zone", fmt.Sprintf(".expected-%v", syntax), 1))
+				expected, err := os.ReadFile(strings.Replace(n, ".zone", fmt.Sprintf(".expected-%v", syntax), 1))
 				if err != nil {
 					panic(err)
 				}
